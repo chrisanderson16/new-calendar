@@ -38,28 +38,13 @@ date = datetime.datetime.now()
 
 logging.basicConfig(level=logging.DEBUG)
 
-##########################################################################################################################################
-##########################################################################################################################################
-######
-######      "need to do with this code" list:
-######              - This will be my main.py
-######              - I will call the color_test.py to convert x-number of .png files to be converted, the file_n_color_convert.py
-######                should purely change the files to:
-######                           red_[char name].bmp
-######                         black_[char name].bmp
-######              - 
-######              - 
-######              - 
-##########################################################################################################################################
-########################################################################################################################################## 
-
 
 
 try:
-    logging.info("epd7in5b_V2 Demo")
+    #logging.info("epd7in5b_V2 Demo")
 
     #epd = epd7in5b_V2.EPD()
-    logging.info("init and Clear")
+    #logging.info("init and Clear")
     #epd.init()
     #epd.Clear()
 
@@ -67,7 +52,7 @@ try:
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
     font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
 
-    logging.info("Displaying day, month and date with thumbnail")
+    #logging.info("Displaying day, month and date with thumbnail")
 
 
 #################################### A P I #####################################################
@@ -186,7 +171,7 @@ try:
 #    epd.init()
 #    epd.Clear()
 
-    logging.info("Goto Sleep...")
+    #logging.info("Goto Sleep...")
     #epd.sleep()
     
 except IOError as e:

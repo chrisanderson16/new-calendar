@@ -23,9 +23,9 @@ fontdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
 
 
 # This will get the directory path of img/
-dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
+dir_img = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
 # This will get the directory path of lib/
-dir_lib = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+dir_lib = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lib')
 
 newIconSize = (250, 250)
 WHITE = (255, 255, 255, 255)
@@ -43,10 +43,10 @@ logging.basicConfig(level=logging.DEBUG)
 try:
     #logging.info("epd7in5b_V2 Demo")
 
-    #epd = epd7in5b_V2.EPD()
+    epd = epd7in5b_V2.EPD()
     #logging.info("init and Clear")
-    #epd.init()
-    #epd.Clear()
+    epd.init()
+    epd.Clear()
 
 
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
@@ -96,13 +96,41 @@ try:
     getThumbnail(parse_json_data)
 
 
-
-    
-    time.sleep(4)
-
-
 ############################## CONVERTING IMG TO BMP ##############################################
 
+
+# Allow 3 seconds to download image(s)
+    time.sleep(3)
+
+# Sets icon_file's path to be opened
+    # This will open the first file it sees with 'img_'
+    for item in os.listdir(dir_img):
+        if item.startswith('img_'):
+            icon_file_path = os.path.join(dir_img, item)
+            break   
+    print(item)
+
+# Sets the blank canvas file's path to be opened
+    empty_canvas_file = os.path.join(dir_img, 'NULL_COLOUR.png')
+
+# Opens the the blank canvas as background
+    background = Image.open(empty_canvas_file)
+    icon_open = Image.open(icon_file_path)     # Opens a iteration for RED of icon from API
+
+# Resize and convert the obj for BLK to the correct dimensions
+    icon_BLK = icon_open.resize(newIconSize)
+    icon_BLK = icon_BLK.convert("RGBA")
+
+# This gets the RGBA data from the actual image and put its in the obj
+    img_blk_data = icon_BLK.getdata()
+
+
+# This sets the outfile location, name and type
+    outFile_BLK = os.path.join(dir_img, 'black_thumbnail.bmp')
+
+
+
+    b = printBlackBMP(rmTransparency(addBorder(img_blk_data)))
 
 
 
@@ -112,7 +140,7 @@ try:
 
 
 
-    """
+    
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'black_thumbnail.bmp'))
     canvas_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
 
@@ -132,7 +160,7 @@ try:
 
 
     time.sleep(5)
-    """
+   
 
 
 

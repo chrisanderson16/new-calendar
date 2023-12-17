@@ -152,7 +152,7 @@ try:
 
 
 # This will remove the first file it sees with 'img_'
-    rmOldImgs()    
+    #rmOldImgs()    
 
 
 

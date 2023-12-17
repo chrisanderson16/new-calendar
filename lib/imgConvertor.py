@@ -52,6 +52,10 @@ def rmTransparency(data):
 # Print Black BMP
 def printBlackBMP(data):
     newData = []
+
+    icon_BLK = icon_open.resize(newIconSize)
+    icon_BLK = icon_BLK.convert("RGBA")
+
     
     for item in data:
         #if (item[0] < 100 and item[1] < 100 and item[2] < 100):

@@ -26,7 +26,7 @@ def runAPI(file_path):
         print(f"Error: The file '{file_path}' does not exist.\r\n")
 
 # This function call will run the python script, therefore, if we want for main, we can use this for all
-runAPI('lib/API_nookipedia_test.py')
+runAPI('lib/API_nook.py')
 
 
 

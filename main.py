@@ -103,36 +103,6 @@ try:
 
 ############################## CONVERTING IMG TO BMP ##############################################
 
-# Sets icon_file's path to be opened
-    # This will open the first file it sees with 'img_'
-    for item in os.listdir(dir_img):
-        if item.startswith('img_'):
-            icon_file_path = os.path.join(dir_img, item)
-            break   
-    print(item)
-
-# Sets the blank canvas file's path to be opened
-    empty_canvas_file = os.path.join(dir_img, 'NULL_COLOUR.png')
-
-# Opens the the blank canvas as background
-    background = Image.open(empty_canvas_file)
-    icon_open = Image.open(icon_file_path)     # Opens a iteration for RED of icon from API
-
-# Resize and convert the obj for BLK to the correct dimensions
-    icon_BLK = icon_open.resize(newIconSize)
-    icon_BLK = icon_BLK.convert("RGBA")
-
-# This gets the RGBA data from the actual image and put its in the obj
-    img_blk_data = icon_BLK.getdata()
-
-
-# This sets the outfile location, name and type
-    outFile_BLK = os.path.join(dir_img, 'black_thumbnail.bmp')
-
-
-
-    b = printBlackBMP(rmTransparency(addBorder(img_blk_data)))
-
 
 
 
@@ -142,7 +112,7 @@ try:
 
 
 
-
+    """
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'black_thumbnail.bmp'))
     canvas_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
 
@@ -162,7 +132,7 @@ try:
 
 
     time.sleep(5)
-
+    """
 
 
 

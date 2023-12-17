@@ -157,4 +157,3 @@ if __name__ == '__main__':
 
 # This will remove the first file it sees with 'img_'
     rmOldImgs()    
-

@@ -58,10 +58,10 @@ logging.basicConfig(level=logging.DEBUG)
 try:
     logging.info("epd7in5b_V2 Demo")
 
-    epd = epd7in5b_V2.EPD()
+    #epd = epd7in5b_V2.EPD()
     logging.info("init and Clear")
-    epd.init()
-    epd.Clear()
+    #epd.init()
+    #epd.Clear()
 
 
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
@@ -173,7 +173,7 @@ try:
     #draw_img = ImageDraw.Draw(img)
 
     #epd.display(epd.getbuffer(img), epd.getbuffer(background_w_thumbnail_red))
-    epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
+    #epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
 
 
     time.sleep(5)
@@ -187,7 +187,7 @@ try:
 #    epd.Clear()
 
     logging.info("Goto Sleep...")
-    epd.sleep()
+    #epd.sleep()
     
 except IOError as e:
     logging.info(e)

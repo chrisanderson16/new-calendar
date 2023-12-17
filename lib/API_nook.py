@@ -13,6 +13,7 @@ import os
 import re
 import logging
 
+dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
 
 api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
 
@@ -66,7 +67,7 @@ def getThumbnail(json_data):
     names = fromJSONgetName(json_data)
 
     # This will delete all the "old" files in img/
-    for item in listdir_images:
+    for item in dir_img:
          if item.startswith('img_'):
               os.remove(os.path.join(dir_img, item))
 

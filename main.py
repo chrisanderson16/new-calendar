@@ -60,7 +60,7 @@ try:
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
     font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
 
-    runAPI('lib/color_test.py')
+    runAPI('lib/imgConvertor.py')
 
     logging.info("Displaying day, month and date with thumbnail")
 

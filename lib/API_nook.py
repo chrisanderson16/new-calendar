@@ -11,9 +11,12 @@ import numpy as np
 import os
 #from glob import glob
 import re
-
 import logging
+
+
 api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
+
+
 class villager_bday:
     def __init__(self, token):
             self.apiurl = 'https://api.nookipedia.com'
@@ -34,9 +37,13 @@ class villager_bday:
           parse_json = json.loads(data)
           return parse_json
 
+
+
 # Determines how many bdays are on a given day
 def getNumOfBdays(data):
     return np.size(data)
+
+
 
 # This will print the names of the character(s) who's bday it is a given day
 def fromJSONgetName(data):
@@ -76,9 +83,11 @@ def getThumbnail(json_data):
     else:
         logging.info("Error getting # of birthdays/r/n")
 
-def getAPI_data():
 
-    
+
+
+
+def getAPI_data():
 
 
 # Gets the current date and time
@@ -90,11 +99,11 @@ def getAPI_data():
 
 
 # Starts the API session
-    villager_bday = villager_bday(api_key)
+    villagers = villager_bday(api_key)
 
 # This calls the getCurrCharAll func in villager_bday class
 # It will give the character who's birthday it is today
-    parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
+    parse_json_data = villagers.getCurrCharAll(currMonth, currDate, 'true')
 
 # Example of a day (2 characters)
 

@@ -61,7 +61,7 @@ try:
     api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
 
 # This will get the directory path of img/
-    dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
+    dir_img = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
 # This will list all the items in the img/ (AKA it will list all the files)
     listdir_images = os.listdir(dir_img)
 

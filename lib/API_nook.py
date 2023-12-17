@@ -13,6 +13,8 @@ import os
 import re
 import logging
 
+import time
+
 dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
 
 api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
@@ -120,7 +122,8 @@ def getAPI_data():
 
 # This will obtain the new image file.
     getThumbnail(parse_json_data)
-
+    time.sleep(5)
+    print("waiting 5 seconds")
 
 
 

@@ -53,10 +53,38 @@ def rmTransparency(data):
 def printBlackBMP(data):
     newData = []
 
+    for item in os.listdir(dir_img):
+        if item.startswith('img_'):
+            icon_file_path = os.path.join(dir_img, item)
+            break   
+    print(item)
+
+
+
+
+# Sets the blank canvas file's path to be opened
+    empty_canvas_file = os.path.join(dir_img, 'NULL_COLOUR.png')
+
+
+# Opens the the blank canvas as background
+    background = Image.open(empty_canvas_file)
+    icon_open = Image.open(icon_file_path)     # Opens a iteration for RED of icon from API
+
+
+
     icon_BLK = icon_open.resize(newIconSize)
     icon_BLK = icon_BLK.convert("RGBA")
 
-    
+
+
+# This gets the RGBA data from the actual image and put its in the obj
+    img_blk_data = icon_BLK.getdata()
+
+
+# This sets the outfile location, name and type
+    outFile_BLK = os.path.join(dir_img, 'black_thumbnail.bmp')
+
+
     for item in data:
         #if (item[0] < 100 and item[1] < 100 and item[2] < 100):
         #    newData.append(BLACK)

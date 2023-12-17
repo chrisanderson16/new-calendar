@@ -71,7 +71,10 @@ try:
 
     getAPI_data()
 
-    
+    time.sleep(3)
+
+    convertIMG()
+
 
 
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'black_thumbnail.bmp'))

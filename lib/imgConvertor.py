@@ -75,7 +75,7 @@ def rmOldImgs():
             break
 
 
-def convertIMG(data):
+def convertIMG():
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             icon_file_path = os.path.join(dir_img, item)

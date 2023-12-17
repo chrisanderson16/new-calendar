@@ -2,6 +2,17 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
+import logging
+import lib.initEPD7in5 as epd7in5b_V2
+import time
+from PIL import Image,ImageDraw,ImageFont
+import traceback
+
+#import lib.API_nook as nookAPI
+from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays, getAPI_data
+#import lib.imgConvertor as convertor 
+from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
+
 #picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
 picdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
 #fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
@@ -10,14 +21,15 @@ fontdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
 #if os.path.exists(libdir):
 #    sys.path.append(libdir)
 
-import logging
-import lib.initEPD7in5 as epd7in5b_V2
-import time
-from PIL import Image,ImageDraw,ImageFont
-import traceback
 
-import lib.API_nook as nookAPI
+# This will get the directory path of img/
+dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
+# This will get the directory path of lib/
+dir_lib = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 
+newIconSize = (250, 250)
+WHITE = (255, 255, 255, 255)
+BLACK = (0, 0, 0, 255)
 
 import datetime
 
@@ -41,12 +53,6 @@ logging.basicConfig(level=logging.DEBUG)
 ##########################################################################################################################################
 ########################################################################################################################################## 
 
-def runAPI(file_path):
-    try:
-        os.system(f'python3 {os.path.join(file_path)}')
-    except FileNotFoundError:
-        print(f"Error: The file '{file_path}' does not exist.\r\n")
-
 
 
 try:
@@ -57,12 +63,15 @@ try:
     epd.init()
     epd.Clear()
 
+
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
     font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
 
-    runAPI('lib/imgConvertor.py')
-
     logging.info("Displaying day, month and date with thumbnail")
+
+    getAPI_data()
+
+    
 
 
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'black_thumbnail.bmp'))

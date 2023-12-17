@@ -14,21 +14,6 @@ import re
 
 import logging
 
-# This is secret and you must get your own API key from the Nookipedia devs
-api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
-
-# This will get the directory path of img/
-dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
-# This will list all the items in the img/ (AKA it will list all the files)
-listdir_images = os.listdir(dir_img)
-
-# Gets the current date and time
-date = datetime.datetime.now()
-# Month
-currMonth = date.strftime("%B")
-# Date
-currDate = date.strftime("%-d")
-
 class villager_bday:
     def __init__(self, token):
             self.apiurl = 'https://api.nookipedia.com'
@@ -91,7 +76,64 @@ def getThumbnail(json_data):
     else:
         logging.info("Error getting # of birthdays/r/n")
 
+def getAPI_data():
+
+    api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
+
+
+# Gets the current date and time
+    date = datetime.datetime.now()
+# Month
+    currMonth = date.strftime("%B")
+# Date
+    currDate = date.strftime("%-d")
+
+
+# Starts the API session
+    villager_bday = villager_bday(api_key)
+
+# This calls the getCurrCharAll func in villager_bday class
+# It will give the character who's birthday it is today
+    parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
+
+# Example of a day (2 characters)
+
+# This will give me the data I want for a given day
+#parse_json_data = villager_bday.getCurrCharAll('December', '5', 'true')
+# This prints the data to screen, or pass it to a text file to read easily
+    pp(parse_json_data)
+
+# This will return a list of names for a day
+    names = []
+    names = fromJSONgetName(parse_json_data)
+    print(names)
+
+# This will obtain the new image file.
+    getThumbnail(parse_json_data)
+
+
+
+
+
+
 if __name__ == '__main__':
+
+# This is secret and you must get your own API key from the Nookipedia devs
+    api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
+
+# This will get the directory path of img/
+    dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
+# This will list all the items in the img/ (AKA it will list all the files)
+    listdir_images = os.listdir(dir_img)
+
+# Gets the current date and time
+    date = datetime.datetime.now()
+# Month
+    currMonth = date.strftime("%B")
+# Date
+    currDate = date.strftime("%-d")
+
+
 # Starts the API session
     villager_bday = villager_bday(api_key)
 

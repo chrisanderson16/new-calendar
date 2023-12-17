@@ -13,7 +13,7 @@ import os
 import re
 
 import logging
-
+api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
 class villager_bday:
     def __init__(self, token):
             self.apiurl = 'https://api.nookipedia.com'
@@ -78,7 +78,7 @@ def getThumbnail(json_data):
 
 def getAPI_data():
 
-    api_key = os.environ["SECRET_NOOKIPEDIA_API_KEY"]
+    
 
 
 # Gets the current date and time

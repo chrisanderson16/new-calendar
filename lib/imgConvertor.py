@@ -1,7 +1,6 @@
 from PIL import Image, ImageDraw, ImageFilter
 import os
 import time
-from API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays
 
 
 # This will get the directory path of img/

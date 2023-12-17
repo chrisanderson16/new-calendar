@@ -11,7 +11,7 @@ import traceback
 #import lib.API_nook as nookAPI
 from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays, getAPI_data
 #import lib.imgConvertor as convertor 
-from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
+from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG, icon_BLK
 
 #picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
 picdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')

@@ -71,7 +71,7 @@ try:
 
     getAPI_data()
 
-    time.sleep(3)
+    time.sleep(5)
 
     convertIMG()
 

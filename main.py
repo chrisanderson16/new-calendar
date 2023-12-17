@@ -174,8 +174,8 @@ try:
     #logging.info("Goto Sleep...")
     #epd.sleep()
     
-except IOError as e:
-    logging.info(e)
+#except IOError as e:
+ #   logging.info(e)
     
 except KeyboardInterrupt:    
     logging.info("ctrl + c:")

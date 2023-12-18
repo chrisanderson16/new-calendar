@@ -21,7 +21,7 @@ import lib.initEPD7in5 as epd7in5b_V2
 from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays, getAPI_data
 from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
 from lib.cal_ender import calendar_icon
-from lib.google_api import google_calendar_api
+from lib.google_api import google_calendar_api, datetimeformatter
 
 
 #OS PATH to image directory
@@ -167,10 +167,11 @@ try:
 
 
 # Google API
-    testing = google_calendar_api(SCOPES)
+    cal_list = google_calendar_api(SCOPES)
 
-    print(testing)
+    event_list = datetimeformatter(cal_list)
 
+    print(event_list)
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

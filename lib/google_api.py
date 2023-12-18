@@ -1,4 +1,5 @@
 import datetime
+import time
 import os.path
 
 from google.auth.transport.requests import Request
@@ -75,5 +76,31 @@ def google_calendar_api(SCOPES):
 
   return cal_contents
 
+def datetimeformatter(cal_list):
+  cal_events = []
+
+  for i in range(0, len(cal_list), 2):
+    s = cal_list[i]
+    f1 = "%Y-%m-%dT%H:%M:%S%z"
+    f2 = "%Y-%m-%d"
+
+    if len(cal_list[i]) > 10:
+    #print(len(cal_list[i]))
+      out = datetime.datetime.strptime(s, f1).strftime("%b %d @ %I:%M%p")
+    else:
+      out = datetime.datetime.strptime(s, f2).strftime("%b %d")
+  
+    #print(out, cal_list[i+1])
+    #print(cal_list[i+1], cal_list[i])
+
+    new = f"{out} {cal_list[i+1]}"
+    cal_events.append(new)
+  return cal_events
+
+
+
+
 if __name__ == "__main__":
-  google_calendar_api(SCOPESX)
+  cal_contents = google_calendar_api(SCOPESX)
+
+  datetimeformatter(cal_contents)

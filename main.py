@@ -19,7 +19,7 @@ from googleapiclient.errors import HttpError
 
 import lib.initEPD7in5 as epd7in5b_V2
 from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays, getAPI_data
-from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
+from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convert_char_thumbnails
 from lib.cal_ender import calendar_icon
 from lib.google_api import google_calendar_api, datetimeformatter
 
@@ -102,7 +102,7 @@ try:
 # Allow 3 seconds to download image(s)
     time.sleep(3)
 
-    
+    """
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             icon_file_path = os.path.join(dir_img, item)
@@ -131,8 +131,8 @@ try:
 
     printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK, background, outFile_BLK)
 
-
-
+"""
+    convert_char_thumbnails(dir_img)
 # This will remove the first file it sees with 'img_'
     rmOldImgs(dir_img)    
 

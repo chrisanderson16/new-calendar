@@ -59,69 +59,64 @@ def printBlackBMP(data, icon_BLK, background, outFile_BLK):
 
     icon_BLK.putdata(newData)
 
-    B_Image = background.copy()
-    B_Image.paste(icon_BLK, (20, 230))
-    B_Image.save(outFile_BLK, quality=95)
+    #B_Image = background.copy()
+    #B_Image.paste(icon_BLK, (20, 230))
+    #B_Image.save(outFile_BLK, quality=95)
 
+    return icon_BLK
 
 def rmOldImgs(dir_img):
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             os.remove(os.path.join(dir_img, item))
-            break
 
-def char_thumbnail(numOfBDays, dir_img):
+def convert_char_thumbnails(dir_img):
     
-    i = 0
+    IconSize = (250, 250)
+
+    i = 1
     
-    icon_file_path = []
+    icon_files = list()
 
-    for item in os.listdir(dir_img):
-        if item.startswith('img_'):
-            icon_file_path[i] = os.path.join(dir_img, item)
-            i += 1
-                
-    print(icon_file_path)
-
-
-    return icon_file_path
-
-
-def convertIMG(dir_img):
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             icon_file_path = os.path.join(dir_img, item)
-            break   
-    print(item)
+            icon_files.append(icon_file_path)
+            i += 1
+                
+    print(icon_files)
 
-# Sets the blank canvas file's path to be opened
-    empty_canvas_file = os.path.join(dir_img, 'NULL_COLOUR.png')
+    if len(icon_files) > 1:
+        print("OMG more than 1 bday today")
+    else:
+        print("Normal operations")
+
+
+        icon_open = Image.open(icon_file_path)     # Opens a iteration for RED of icon from API
+        empty_canvas_file = os.path.join(dir_img, 'NULL_COLOUR.png')
 
 # Opens the the blank canvas as background
-    background = Image.open(empty_canvas_file)
-    icon_open = Image.open(icon_file_path)     # Opens a iteration for RED of icon from API
-
+        background = Image.open(empty_canvas_file)
 # Resize and convert the obj for BLK to the correct dimensions
-    icon_BLK = icon_open.resize(newIconSize)
-    icon_BLK = icon_BLK.convert("RGBA")
+        icon_BLK = icon_open.resize(IconSize)
+        icon_BLK = icon_BLK.convert("RGBA")
 
 # This gets the RGBA data from the actual image and put its in the obj
-    img_blk_data = icon_BLK.getdata()
+        img_blk_data = icon_BLK.getdata()
 
 
 # This sets the outfile location, name and type
-    outFile_BLK = os.path.join(dir_img, 'black_thumbnail.bmp')
+        outFile_BLK = os.path.join(dir_img, 'black_thumbnail.bmp')
 
 
 
-    printBlackBMP(rmTransparency(addBorder(img_blk_data)))
+        out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK, background, outFile_BLK)
+        rmOldImgs(dir_img)  
+        return out
 
 
 
-
-# This will remove the first file it sees with 'img_'
-    #rmOldImgs()    
-
+########################################### MAIN FUNCTION #############################################################
 
 if __name__ == '__main__':
 
@@ -131,7 +126,7 @@ if __name__ == '__main__':
 # This will get the directory path of lib/
     dir_lib = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 
-
+    rmOldImgs(dir_img) 
 # This function call will run the python script, therefore, if we want for main, we can use this for all
     runAPI('API_nook.py')
 
@@ -169,8 +164,9 @@ if __name__ == '__main__':
 
     #b = printBlackBMP(rmTransparency(addBorder(img_blk_data)))
 
-    char_thumbnail(2, dir_img)
+    convert_char_thumbnails(dir_img)
 
 
+      
 # This will remove the first file it sees with 'img_'
     #rmOldImgs()    

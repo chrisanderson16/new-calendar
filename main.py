@@ -151,7 +151,7 @@ try:
     draw_blk = ImageDraw.Draw(canvas_blk)
     draw_red = ImageDraw.Draw(canvas_red)
 
-    canvas_blk.paste(thumbnail_blk, (10,230,260,480))
+    canvas_blk.paste(thumbnail_blk, box=None, mask=None)
 
 # Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)

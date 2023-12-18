@@ -174,7 +174,7 @@ try:
     print(event_list)
 
     # Putting entries in calendar list on screen
-    lhs_calendar, height_calendar = 405, 83
+    lhs_calendar, height_calendar = 405, 90
     interation_cal_line = 0
     for entry in event_list:
         draw_blk.text((lhs_calendar, height_calendar+interation_cal_line*40), "{:1}".format(entry), font=font24, fill=0)

@@ -174,9 +174,11 @@ try:
     print(event_list)
 
     # Putting entries in calendar list on screen
-    lhs_calendar, height_calendar = 405, 80
+    lhs_calendar, height_calendar = 405, 83
+    interation_cal_line = 1
     for entry in event_list:
-        draw_blk.text((lhs_calendar, height_calendar), "{:1}".format(entry), font=font24, fill=0)
+        draw_blk.text((lhs_calendar, height_calendar+interation_cal_line*40), "{:1}".format(entry), font=font24, fill=0)
+        interation_cal_line += 1
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

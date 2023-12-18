@@ -140,7 +140,7 @@ try:
     draw_blk.rectangle([(380,0),(400,480)], fill="black", outline=None, width=1)
 
 # Calendar bar (tpo right corner all red)
-    draw_red.rectangle([(400,0),(800,100)], fill="black", outline=None, width=1)
+    draw_red.rectangle([(400,0),(800,80)], fill="black", outline=None, width=1)
     draw_red.text((475,25), "CALENDAR", font=font48, fill="white")
 
 

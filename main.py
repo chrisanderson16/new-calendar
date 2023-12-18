@@ -138,7 +138,7 @@ try:
 
 
 
-
+####################################### PRINTING TO DISPLAY ###################
     
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'black_thumbnail.bmp'))
     canvas_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))

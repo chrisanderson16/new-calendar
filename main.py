@@ -164,9 +164,9 @@ try:
 
 
 
-    logging.info("Clear...")
-    epd.init()
-    epd.Clear()
+    #logging.info("Clear...")
+    #epd.init()
+    #epd.Clear()
 
     logging.info("Goto Sleep...")
     epd.sleep()

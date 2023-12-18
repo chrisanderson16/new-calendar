@@ -134,13 +134,14 @@ try:
 """
     convert_char_thumbnails(dir_img)
 # This will remove the first file it sees with 'img_'
-    rmOldImgs(dir_img)    
+    #rmOldImgs(dir_img)    
 
 
 
 ####################################### PRINTING TO DISPLAY ###################
     
-    background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
+    #background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
+    background_w_thumbnail_blk = convert_char_thumbnails(dir_img)
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
 # Canvases w/ thumbnail and blank

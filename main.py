@@ -155,7 +155,7 @@ try:
     draw_blk.line([(401,400),(800,400)], fill=None, width=0, joint=None)
     draw_blk.line([(401,440),(800,440)], fill=None, width=0, joint=None)
 
-    canvas_red.paste(calendar_icon(), (410,10))
+    canvas_red.paste(calendar_icon(), (425,10))
 
 
 

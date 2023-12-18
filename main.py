@@ -132,7 +132,7 @@ try:
     printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK, background, outFile_BLK)
 
 """
-    convert_char_thumbnails(dir_img)
+    #convert_char_thumbnails(dir_img)
 # This will remove the first file it sees with 'img_'
     #rmOldImgs(dir_img)    
 
@@ -151,7 +151,7 @@ try:
     draw_blk = ImageDraw.Draw(canvas_blk)
     draw_red = ImageDraw.Draw(canvas_red)
 
-    canvas_blk.paste(thumbnail_blk, [(10,230),(260,480)])
+    canvas_blk.paste(thumbnail_blk, (10,230,260,480))
 
 # Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)

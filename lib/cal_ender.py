@@ -14,20 +14,20 @@ def calendar_icon():
 
     s_h1, s_w1, s_h2, s_w2 = 0, 0, 5, 5
 
-    #draw.rectangle([(s_h1+10,s_w1+18),(s_h2+10,s_w2+18)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+18,s_w1+18),(s_h2+18,s_w2+18)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+26,s_w1+18),(s_h2+26,s_w2+18)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+34,s_w1+18),(s_h2+34,s_w2+18)], fill='black', outline=None,width=1)
+    #draw.rectangle([(s_h1+10,s_w1+19),(s_h2+10,s_w2+19)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+18,s_w1+19),(s_h2+18,s_w2+19)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+26,s_w1+19),(s_h2+26,s_w2+19)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+34,s_w1+19),(s_h2+34,s_w2+19)], fill='black', outline=None,width=1)
 
-    draw.rectangle([(s_h1+10,s_w1+26),(s_h2+10,s_w2+26)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+18,s_w1+26),(s_h2+18,s_w2+26)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+26,s_w1+26),(s_h2+26,s_w2+26)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+34,s_w1+26),(s_h2+34,s_w2+26)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+10,s_w1+27),(s_h2+10,s_w2+27)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+18,s_w1+27),(s_h2+18,s_w2+27)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+26,s_w1+27),(s_h2+26,s_w2+27)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+34,s_w1+27),(s_h2+34,s_w2+27)], fill='black', outline=None,width=1)
 
-    draw.rectangle([(s_h1+10,s_w1+34),(s_h2+10,s_w2+34)], fill='black', outline=None,width=1)
-    draw.rectangle([(s_h1+18,s_w1+34),(s_h2+18,s_w2+34)], fill='black', outline=None,width=1)
-    #draw.rectangle([(s_h1+26,s_w1+34),(s_h2+26,s_w2+34)], fill='black', outline=None,width=1)
-    #draw.rectangle([(s_h1+34,s_w1+34),(s_h2+34,s_w2+34)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+10,s_w1+35),(s_h2+10,s_w2+35)], fill='black', outline=None,width=1)
+    draw.rectangle([(s_h1+18,s_w1+35),(s_h2+18,s_w2+35)], fill='black', outline=None,width=1)
+    #draw.rectangle([(s_h1+26,s_w1+35),(s_h2+26,s_w2+35)], fill='black', outline=None,width=1)
+    #draw.rectangle([(s_h1+34,s_w1+35),(s_h2+34,s_w2+35)], fill='black', outline=None,width=1)
 
     img = img.convert('L')
     img = ImageChops.invert(img)

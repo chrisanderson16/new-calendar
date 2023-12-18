@@ -141,12 +141,17 @@ try:
 ####################################### PRINTING TO DISPLAY ###################
     
     #background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
-    background_w_thumbnail_blk = convert_char_thumbnails(dir_img)
+    
+    canvas_blk = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
+    thumbnail_blk = convert_char_thumbnails(dir_img)
+
 # Canvases w/ thumbnail and blank
-    draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
+    draw_blk = ImageDraw.Draw(canvas_blk)
     draw_red = ImageDraw.Draw(canvas_red)
+
+    canvas_blk.paste(thumbnail_blk)
 
 # Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)
@@ -185,7 +190,7 @@ try:
         interation_cal_line += 1
 
 # Output to EPD
-    epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
+    epd.display(epd.getbuffer(canvas_blk), epd.getbuffer(canvas_red))
 
 
     time.sleep(5)

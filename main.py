@@ -166,11 +166,12 @@ try:
     canvas_red.paste(calendar_icon(), (425,10))
 
 
+# Google API
+    google_calendar_api(SCOPES)
+
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
-
-    google_calendar_api(SCOPES)
 
 
     time.sleep(5)

@@ -86,7 +86,7 @@ def datetimeformatter(cal_list):
 
     if len(cal_list[i]) > 10:
     #print(len(cal_list[i]))
-      out = datetime.datetime.strptime(s, f1).strftime("%b %d @ %-I:%M%p")
+      out = datetime.datetime.strptime(s, f1).strftime("%b %-d @ %-I:%M%p")
     else:
       out = datetime.datetime.strptime(s, f2).strftime("%b %d")
   

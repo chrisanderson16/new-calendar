@@ -142,7 +142,7 @@ try:
 
 # Calendar bar (tpo right corner all red)
     draw_red.rectangle([(401,0),(800,80)], fill="black", outline=None, width=1)
-    draw_red.text((475,25), "CALENDAR", font=font48, fill="white")
+    draw_red.text((500,20), "CALENDAR", font=font48, fill="white")
 
     # Individual calendar lines
     draw_blk.line([(401,120),(800,120)], fill=None, width=0, joint=None)

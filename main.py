@@ -129,7 +129,7 @@ try:
 
 
 
-    printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)
+    printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK, background, outFile_BLK)
 
 
 

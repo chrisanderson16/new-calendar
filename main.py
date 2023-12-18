@@ -146,7 +146,7 @@ try:
 
     # Individual calendar lines
     w_lines = 120
-    for i in range(0,8):
+    for i in range(0,9):
         draw_blk.line([(401,w_lines+i*40),(800,w_lines+i*40)], fill=None, width=0, joint=None)
     
     canvas_red.paste(calendar_icon(), (425,10))

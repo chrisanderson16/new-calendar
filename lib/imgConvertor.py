@@ -45,7 +45,7 @@ def rmTransparency(data):
     return newData
 
 # Print Black BMP
-def printBlackBMP(data, icon_BLK, background, outFile_BLK):
+def printBlackBMP(data, icon_BLK):
 
     newData = []
     
@@ -104,16 +104,15 @@ def convert_char_thumbnails(dir_img):
 # This gets the RGBA data from the actual image and put its in the obj
         img_blk_data = icon_BLK.getdata()
 
-
-# This sets the outfile location, name and type
-        outFile_BLK = os.path.join(dir_img, 'black_thumbnail.bmp')
+        new_icon = Image.new('RGBA', (250,250), 1)
 
 
-
-        out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK, background, outFile_BLK)
-        out.convert('1')
-        rmOldImgs(dir_img)  
-        return out
+        #out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)
+        
+        new_icon.putdata(rmTransparency(addBorder(img_blk_data)))
+        new_icon.show()
+        #rmOldImgs(dir_img)  
+        return new_icon
 
 
 

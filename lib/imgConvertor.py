@@ -45,7 +45,7 @@ def rmTransparency(data):
     return newData
 
 # Print Black BMP
-def printBlackBMP(data, dir_img):
+def printBlackBMP(data):
     newData = []
     
     for item in data:

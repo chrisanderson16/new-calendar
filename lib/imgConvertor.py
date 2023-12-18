@@ -111,6 +111,7 @@ def convert_char_thumbnails(dir_img):
 
 
         out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK, background, outFile_BLK)
+        out.convert('1')
         rmOldImgs(dir_img)  
         return out
 

@@ -145,13 +145,13 @@ try:
     canvas_blk = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
-    thumbnail_blk = convert_char_thumbnails(dir_img)
+    
 
 # Canvases w/ thumbnail and blank
     draw_blk = ImageDraw.Draw(canvas_blk)
     draw_red = ImageDraw.Draw(canvas_red)
 
-    canvas_blk.paste(thumbnail_blk, box=(10, 220), mask=None)
+    canvas_blk.paste(convert_char_thumbnails(dir_img),(10, 220))
 
 # Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)

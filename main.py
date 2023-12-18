@@ -134,7 +134,7 @@ try:
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)
     draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
 
-    draw_blk.rectangle([(380,0),(400,480)], BLACK, outline=None, width=1)
+    draw_blk.rectangle([(380,0),(400,480)], fill=BLACK, outline=None, width=1)
 
 
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

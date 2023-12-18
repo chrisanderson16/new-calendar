@@ -145,16 +145,10 @@ try:
     draw_red.text((500,20), "CALENDAR", font=font48, fill="white")
 
     # Individual calendar lines
-    draw_blk.line([(401,120),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,160),(800,160)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,200),(800,200)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,240),(800,240)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,280),(800,280)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,320),(800,320)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,360),(800,360)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,400),(800,400)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,440),(800,440)], fill=None, width=0, joint=None)
-
+    w_lines = 120
+    for i in range(0,8):
+        draw_blk.line([(401,w_lines+i*40),(800,w_lines+i*40)], fill=None, width=0, joint=None)
+    
     canvas_red.paste(calendar_icon(), (425,10))
 
 

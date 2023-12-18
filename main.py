@@ -78,12 +78,12 @@ try:
 
 # This calls the getCurrCharAll func in villager_bday class
 # It will give the character who's birthday it is today
-    parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
+#    parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
 
 # Example of a day (2 characters)
 
 # This will give me the data I want for a given day
-#parse_json_data = villager_bday.getCurrCharAll('December', '5', 'true')
+    parse_json_data = villager_bday.getCurrCharAll('December', '8', 'true')
 # This prints the data to screen, or pass it to a text file to read easily
     pp(parse_json_data)
 

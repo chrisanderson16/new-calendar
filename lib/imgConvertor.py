@@ -70,6 +70,22 @@ def rmOldImgs(dir_img):
             os.remove(os.path.join(dir_img, item))
             break
 
+def char_thumbnail(numOfBDays, dir_img):
+    
+    i = 0
+    
+    icon_file_path = []
+
+    for item in os.listdir(dir_img):
+        if item.startswith('img_'):
+            icon_file_path[i] = os.path.join(dir_img, item)
+            i += 1
+                
+    print(icon_file_path)
+
+
+    return icon_file_path
+
 
 def convertIMG(dir_img):
     for item in os.listdir(dir_img):
@@ -153,7 +169,7 @@ if __name__ == '__main__':
 
     b = printBlackBMP(rmTransparency(addBorder(img_blk_data)))
 
-
+    char_thumbnail(2, dir_img)
 
 
 # This will remove the first file it sees with 'img_'

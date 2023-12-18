@@ -48,7 +48,7 @@ try:
     epd.init()
     epd.Clear()
 
-
+    font24 = ImageFont.truetype(os.path.join(dir_font, 'FinkHeavy.ttf'), 24)
     font48 = ImageFont.truetype(os.path.join(dir_font, 'FinkHeavy.ttf'), 48)
     font72 = ImageFont.truetype(os.path.join(dir_font, 'FinkHeavy.ttf'), 72)
 
@@ -172,6 +172,11 @@ try:
     event_list = datetimeformatter(cal_list)
 
     print(event_list)
+
+    # Putting entries in calendar list on screen
+    lhs_calendar, height_calendar = 405, 80
+    for entry in event_list:
+        draw_blk.text((lhs_calendar, height_calendar), "{:1}".format(entry), font=font24, fill=0)
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

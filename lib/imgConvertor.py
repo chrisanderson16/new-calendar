@@ -46,6 +46,7 @@ def rmTransparency(data):
 
 # Print Black BMP
 def printBlackBMP(data):
+
     newData = []
     
     for item in data:
@@ -70,7 +71,7 @@ def rmOldImgs():
             break
 
 
-def convertIMG():
+def convertIMG(dir_img):
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             icon_file_path = os.path.join(dir_img, item)
@@ -97,13 +98,13 @@ def convertIMG():
 
 
 
-    b = printBlackBMP(rmTransparency(addBorder(img_blk_data)))
+    printBlackBMP(rmTransparency(addBorder(img_blk_data)))
 
 
 
 
 # This will remove the first file it sees with 'img_'
-    rmOldImgs()    
+    #rmOldImgs()    
 
 
 if __name__ == '__main__':

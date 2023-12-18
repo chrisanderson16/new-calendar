@@ -64,7 +64,7 @@ def printBlackBMP(data, icon_BLK, background, outFile_BLK):
     B_Image.save(outFile_BLK, quality=95)
 
 
-def rmOldImgs():
+def rmOldImgs(dir_img):
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             os.remove(os.path.join(dir_img, item))

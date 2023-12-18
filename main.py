@@ -128,15 +128,23 @@ try:
     background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
+# Canvases w/ thumbnail and blank
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(canvas_red)
 
+# Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)
     draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
 
+# Middle bar (vertical line)
     draw_blk.rectangle([(380,0),(400,480)], fill="black", outline=None, width=1)
 
+# Calendar bar (tpo right corner all red)
+    draw_red.rectangle([(400,0),(800,100)], fill="black", outline=None, width=1)
+    draw_red.text((500,50), "CALENDAR", font=font48, fill="white")
 
+
+# Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
 
 

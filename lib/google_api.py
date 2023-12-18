@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
-#SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
+SCOPESX = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 
 def google_calendar_api(SCOPES):
@@ -57,14 +57,21 @@ def google_calendar_api(SCOPES):
       print("No upcoming events found.")
       return
 
+    cal_contents = []
     # Prints the start and name of the next 10 events
+    #for event in events:
+      #start = event["start"].get("dateTime", event["start"].get("date"))
+      #print(start, event["summary"])
+    
     for event in events:
       start = event["start"].get("dateTime", event["start"].get("date"))
-      print(start, event["summary"])
+      cal_contents.append(start)
+      cal_contents.append(event["summary"])
 
   except HttpError as error:
     print(f"An error occurred: {error}")
 
+  return cal_contents
 
-#if __name__ == "__main__":
-#  main()
+if __name__ == "__main__":
+  google_calendar_api(SCOPESX)

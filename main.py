@@ -167,7 +167,9 @@ try:
 
 
 # Google API
-    google_calendar_api(SCOPES)
+    testing = google_calendar_api(SCOPES)
+
+    print(testing)
 
 
 # Output to EPD

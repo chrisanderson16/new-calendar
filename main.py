@@ -141,7 +141,7 @@ try:
 
 # Calendar bar (tpo right corner all red)
     draw_red.rectangle([(400,0),(800,100)], fill="black", outline=None, width=1)
-    draw_red.text((500,50), "CALENDAR", font=font48, fill="white")
+    draw_red.text((475,25), "CALENDAR", font=font48, fill="white")
 
 
 # Output to EPD

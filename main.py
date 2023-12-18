@@ -3,19 +3,19 @@
 import sys
 import os
 import logging
-import lib.initEPD7in5 as epd7in5b_V2
 import time
-from PIL import Image,ImageDraw,ImageFont
 import traceback
+import datetime
+from PIL import Image,ImageDraw,ImageFont
 
-#import lib.API_nook as nookAPI
+import lib.initEPD7in5 as epd7in5b_V2
 from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays, getAPI_data
-#import lib.imgConvertor as convertor 
 from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
 
-#dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
+#OS PATH to image directory
 dir_img = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
-#dir_font = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
+
+#OS PATH to font directory
 dir_font = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
 
 
@@ -23,14 +23,7 @@ newIconSize = (250, 250)
 WHITE = (255, 255, 255, 255)
 BLACK = (0, 0, 0, 255)
 
-import datetime
-
-
-date = datetime.datetime.now()
-
 logging.basicConfig(level=logging.DEBUG)
-
-
 
 try:
     logging.info("epd7in5b_V2 Demo")
@@ -126,7 +119,7 @@ try:
 
 
 # This will remove the first file it sees with 'img_'
-    #rmOldImgs()    
+    rmOldImgs()    
 
 
 
@@ -141,7 +134,7 @@ try:
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)
     draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
 
-
+    draw_blk.rectangle([(380,0),(400,480)], BLACK, outline=None, width=1)
 
 
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
@@ -152,7 +145,7 @@ try:
 
 
 
-
+# This will clear after the script is run
     #logging.info("Clear...")
     #epd.init()
     #epd.Clear()

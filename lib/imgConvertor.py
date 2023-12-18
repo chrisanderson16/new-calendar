@@ -111,7 +111,7 @@ def convert_char_thumbnails(dir_img):
         
         new_icon.putdata(rmTransparency(addBorder(img_blk_data)))
         new_icon.show()
-        #rmOldImgs(dir_img)  
+        rmOldImgs(dir_img)  
         return new_icon
 
 

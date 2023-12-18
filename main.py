@@ -6,11 +6,12 @@ import logging
 import time
 import traceback
 import datetime
-from PIL import Image,ImageDraw,ImageFont
+from PIL import Image,ImageDraw,ImageFont, ImageChops
 
 import lib.initEPD7in5 as epd7in5b_V2
 from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_key, getNumOfBdays, getAPI_data
 from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
+from lib.cal_ender import calendar_icon
 
 #OS PATH to image directory
 dir_img = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
@@ -153,6 +154,10 @@ try:
     draw_blk.line([(401,360),(800,360)], fill=None, width=0, joint=None)
     draw_blk.line([(401,400),(800,400)], fill=None, width=0, joint=None)
     draw_blk.line([(401,440),(800,440)], fill=None, width=0, joint=None)
+
+    draw_red.paste(calendar_icon(), box=(410,10), mask=None)
+
+
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

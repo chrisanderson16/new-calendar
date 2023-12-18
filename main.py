@@ -145,14 +145,14 @@ try:
 
     # Individual calendar lines
     draw_blk.line([(401,120),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,160),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,200),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,240),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,280),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,320),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,360),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,400),(800,120)], fill=None, width=0, joint=None)
-    draw_blk.line([(401,440),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,160),(800,160)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,200),(800,200)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,240),(800,240)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,280),(800,280)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,320),(800,320)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,360),(800,360)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,400),(800,400)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,440),(800,440)], fill=None, width=0, joint=None)
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

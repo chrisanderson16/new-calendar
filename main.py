@@ -140,9 +140,19 @@ try:
     draw_blk.rectangle([(380,0),(400,480)], fill="black", outline=None, width=1)
 
 # Calendar bar (tpo right corner all red)
-    draw_red.rectangle([(400,0),(800,80)], fill="black", outline=None, width=1)
+    draw_red.rectangle([(401,0),(800,80)], fill="black", outline=None, width=1)
     draw_red.text((475,25), "CALENDAR", font=font48, fill="white")
 
+    # Individual calendar lines
+    draw_blk.line([(401,120),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,160),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,200),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,240),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,280),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,320),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,360),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,400),(800,120)], fill=None, width=0, joint=None)
+    draw_blk.line([(401,440),(800,120)], fill=None, width=0, joint=None)
 
 # Output to EPD
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))

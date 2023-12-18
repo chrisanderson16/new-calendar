@@ -13,19 +13,11 @@ from lib.API_nook import villager_bday, pp, fromJSONgetName, getThumbnail, api_k
 #import lib.imgConvertor as convertor 
 from lib.imgConvertor import addBorder, rmTransparency, printBlackBMP, rmOldImgs, convertIMG
 
-#picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
-picdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
-#fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
-fontdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
-#libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
-#if os.path.exists(libdir):
-#    sys.path.append(libdir)
-
-
-# This will get the directory path of img/
+#dir_img = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'img')
 dir_img = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'img')
-# This will get the directory path of lib/
-dir_lib = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lib')
+#dir_font = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
+dir_font = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
+
 
 newIconSize = (250, 250)
 WHITE = (255, 255, 255, 255)
@@ -49,8 +41,8 @@ try:
     epd.Clear()
 
 
-    font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
-    font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
+    font48 = ImageFont.truetype(os.path.join(dir_font, 'FinkHeavy.ttf'), 48)
+    font72 = ImageFont.truetype(os.path.join(dir_font, 'FinkHeavy.ttf'), 72)
 
     #logging.info("Displaying day, month and date with thumbnail")
 
@@ -140,8 +132,8 @@ try:
 
 ####################################### PRINTING TO DISPLAY ###################
     
-    background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'black_thumbnail.bmp'))
-    canvas_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
+    background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
+    canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(canvas_red)
@@ -149,12 +141,9 @@ try:
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)
     draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
 
-    #background_w_thumbnail_blk.save(os.path.join(picdir, 'final.bmp'))
-    
-    #img = Image.open(os.path.join(picdir, 'final.bmp'))
-    #draw_img = ImageDraw.Draw(img)
 
-    #epd.display(epd.getbuffer(img), epd.getbuffer(background_w_thumbnail_red))
+
+
     epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(canvas_red))
 
 

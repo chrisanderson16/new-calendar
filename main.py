@@ -173,12 +173,12 @@ try:
     canvas_red.paste(calendar_icon(), (425,10))
     
         # Individual calendar lines
-    """
+    
     w_lines = 120
     for i in range(0,9):
-        draw_blk.line([(401,w_lines+i*40),(800,w_lines+i*40)], fill=None, width=1, joint=None)
-"""
-    draw_blk.rectangle([(401,120),(800,120)], fill="grey", width=1)
+        draw_blk.rectangle([(401,w_lines+i*40),(800,w_lines+i*40)], fill="grey", width=1)
+
+    
 # Google API
     cal_list = google_calendar_api(SCOPES)
 

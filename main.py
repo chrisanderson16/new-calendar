@@ -154,7 +154,7 @@ try:
 # Names on icons
     if numofCharacters > 1:
         draw_blk.text((50, 390), "{:1}".format(names[0]), font=font24, fill=0)    
-        draw_blk.text((270,390), "{:1}".format(names[1]), font=font24, fill=0)    
+        draw_blk.text((255,390), "{:1}".format(names[1]), font=font24, fill=0)    
     else:
         draw_blk.text((220,390), "{:1}".format(names[0]), font=font24, fill=0)    
 

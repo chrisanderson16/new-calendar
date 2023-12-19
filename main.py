@@ -151,7 +151,7 @@ try:
     draw_blk = ImageDraw.Draw(canvas_blk)
     draw_red = ImageDraw.Draw(canvas_red)
 
-# Names on icons
+# Names under icons
     if numofCharacters > 1:
         draw_red.text((50, 390), "{:1}".format(names[0]), font=font24, fill=0)    
         draw_red.text((152,390), "and", font=font24, fill=0)
@@ -201,6 +201,8 @@ try:
 # Output to EPD
     epd.display(epd.getbuffer(canvas_blk), epd.getbuffer(canvas_red))
 
+
+    rmOldImgs(dir_img)
 
     time.sleep(5)
    

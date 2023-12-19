@@ -70,6 +70,9 @@ def rmOldImgs(dir_img):
     for item in os.listdir(dir_img):
         if item.startswith('img_'):
             os.remove(os.path.join(dir_img, item))
+        if item.startswith('tmp'):
+            os.remove(os.path.join(dir_img, item))
+
 
 def convert_char_thumbnails(dir_img):
     
@@ -138,7 +141,7 @@ def convert_char_thumbnails(dir_img):
         blank_im.paste(new_thumb_2, (215,230), mask=None)
 
         blank_im.save(os.path.join(dir_img, 'thumbnail.bmp'))
-        rmOldImgs(dir_img)  
+        #rmOldImgs(dir_img)  
         return 2
     else:
         print("Normal operations")
@@ -171,7 +174,7 @@ def convert_char_thumbnails(dir_img):
 
         blank_im_one.save(os.path.join(dir_img, 'thumbnail.bmp'))
 
-        rmOldImgs(dir_img)  
+        #rmOldImgs(dir_img)  
         return 1
 
 

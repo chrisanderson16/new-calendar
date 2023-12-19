@@ -141,14 +141,10 @@ try:
 ####################################### PRINTING TO DISPLAY ###################
     
     #background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
-    
-    canvas_blk = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
+    convert_char_thumbnails(dir_img)
+    canvas_blk = Image.open(os.path.join(dir_img, 'thumbnail.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
-    convert_char_thumbnails(dir_img)
-
-    thumbnail = Image.open(os.path.join(dir_img, 'thumbnail_1.bmp'))
-    canvas_blk.paste(thumbnail, (10, 220))
     #canvas_blk.paste(convert_char_thumbnails(dir_img),(10, 220))
 
 # Canvases w/ thumbnail and blank

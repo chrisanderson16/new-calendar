@@ -6,6 +6,7 @@ import time
 
 # These are useful definitions
 newIconSize = (250, 250)
+smallerIcon = (200,200)
 WHITE = (255, 255, 255, 255)
 BLACK = (0, 0, 0, 255)
 
@@ -88,6 +89,56 @@ def convert_char_thumbnails(dir_img):
 
     if len(icon_files) > 1:
         print("OMG more than 1 bday today")
+        
+        empty_canvas_file = os.path.join(dir_img, 'NULL_COLOUR.png')
+
+# Opens the the blank canvas as background
+        background = Image.open(empty_canvas_file)
+
+
+# This gets the RGBA data from the actual image and put its in the obj
+        
+
+        new_icon_1 = Image.new('RGBA', smallerIcon, WHITE)
+        new_icon_2 = Image.new('RGBA', smallerIcon, WHITE)
+
+
+
+        icon_open1 = Image.open(icon_files[0])    
+        icon_open2 = Image.open(icon_files[1])    
+            
+# Resize and convert the obj for BLK to the correct dimensions
+        icon_BLK1 = icon_open1.resize(smallerIcon)
+        icon_BLK1 = icon_BLK1.convert("RGBA")
+            
+        icon_BLK2 = icon_open2.resize(smallerIcon)
+        icon_BLK2 = icon_BLK1.convert("RGBA")
+
+        img_blk_data1 = icon_BLK1.getdata()
+        img_blk_data2 = icon_BLK2.getdata()
+        #out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)
+        
+        new_icon_1.putdata(rmTransparency(addBorder(img_blk_data1)))
+        new_icon_2.putdata(rmTransparency(addBorder(img_blk_data2)))
+
+        new_icon_1.save(os.path.join(dir_img, 'tmp1.bmp'))
+        new_icon_2.save(os.path.join(dir_img, 'tmp2.bmp'))
+
+
+        time.sleep(2)
+
+        new_thumb_path_1 = os.path.join(dir_img, 'tmp1.png')
+        new_thumb_path_2 = os.path.join(dir_img, 'tmp2.png')
+
+        new_thumb_1 = Image.open(new_thumb_path_1)
+        new_thumb_2 = Image.open(new_thumb_path_2)
+
+        blank_im = background.copy()
+        blank_im.paste(new_thumb_1, (10,230), make=None)
+        blank_im.paste(new_thumb_2, (260,230), make=None)
+
+        blank_im.save(os.path.join(dir_img, 'thumbnail.bmp'))
+        rmOldImgs(dir_img)  
         return 2
     else:
         print("Normal operations")
@@ -111,7 +162,7 @@ def convert_char_thumbnails(dir_img):
         #out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)
         
         new_icon.putdata(rmTransparency(addBorder(img_blk_data)))
-        new_icon.save(os.path.join(dir_img, 'thumbnail_1.bmp'))
+        new_icon.save(os.path.join(dir_img, 'thumbnail.bmp'))
         rmOldImgs(dir_img)  
         return 1
 

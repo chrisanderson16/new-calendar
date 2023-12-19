@@ -104,7 +104,7 @@ def convert_char_thumbnails(dir_img):
 # This gets the RGBA data from the actual image and put its in the obj
         img_blk_data = icon_BLK.getdata()
 
-        new_icon = Image.new('RGBA', (250,250), 1)
+        new_icon = Image.new('RGBA', (250,250), WHITE)
 
 
         #out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)

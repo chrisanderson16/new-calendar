@@ -6,7 +6,7 @@ import time
 
 # These are useful definitions
 newIconSize = (250, 250)
-smallerIcon = (200,200)
+smallerIcon = (150,150)
 WHITE = (255, 255, 255, 255)
 BLACK = (0, 0, 0, 255)
 

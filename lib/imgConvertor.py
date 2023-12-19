@@ -84,7 +84,7 @@ def convert_char_thumbnails(dir_img):
             icon_file_path = os.path.join(dir_img, item)
             icon_files.append(icon_file_path)
             i += 1
-                
+    icon_files.sort()
     print(icon_files)
 
     if len(icon_files) > 1:

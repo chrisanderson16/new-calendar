@@ -104,8 +104,8 @@ def convert_char_thumbnails(dir_img):
 
 
 
-        icon_open1 = Image.open(icon_files[0])    
-        icon_open2 = Image.open(icon_files[1])    
+        icon_open1 = Image.open(icon_files[1])    
+        icon_open2 = Image.open(icon_files[2])    
             
 # Resize and convert the obj for BLK to the correct dimensions
         icon_BLK1 = icon_open1.resize(smallerIcon)

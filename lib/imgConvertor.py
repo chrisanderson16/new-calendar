@@ -134,8 +134,8 @@ def convert_char_thumbnails(dir_img):
         new_thumb_2 = Image.open(new_thumb_path_2)
 
         blank_im = background.copy()
-        blank_im.paste(new_thumb_1, (10,230), make=None)
-        blank_im.paste(new_thumb_2, (260,230), make=None)
+        blank_im.paste(new_thumb_1, (10,230), mask=None)
+        blank_im.paste(new_thumb_2, (260,230), mask=None)
 
         blank_im.save(os.path.join(dir_img, 'thumbnail.bmp'))
         rmOldImgs(dir_img)  

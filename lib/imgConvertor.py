@@ -167,7 +167,7 @@ def convert_char_thumbnails(dir_img):
         thumb = Image.open(os.path.join(dir_img, 'tmp.bmp'))
 
         blank_im_one = background.copy()
-        blank_im_one.paste(thumb, (40, 150), mask=None)
+        blank_im_one.paste(thumb, (55, 150), mask=None)
 
         blank_im_one.save(os.path.join(dir_img, 'thumbnail.bmp'))
 

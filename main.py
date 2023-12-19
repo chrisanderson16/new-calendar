@@ -169,15 +169,15 @@ try:
     draw_red.rectangle([(401,0),(800,80)], fill="black", outline=None, width=1)
     draw_red.text((500,20), "CALENDAR", font=font48, fill="white")
 
-
+    w_lines = 120
+    for i in range(0,9):
+        draw_blk.rectangle([(401,w_lines+i*40),(800,w_lines+i*40+1)], fill="grey", width=1)
     
     canvas_red.paste(calendar_icon(), (425,10))
     
         # Individual calendar lines
     
-    w_lines = 120
-    for i in range(0,9):
-        draw_blk.rectangle([(401,w_lines+i*40),(800,w_lines+i*40+1)], fill="grey", width=1)
+    
 
     
 # Google API

@@ -170,11 +170,16 @@ try:
     draw_red.rectangle([(401,0),(800,80)], fill="black", outline=None, width=1)
     draw_red.text((500,20), "CALENDAR", font=font48, fill="white")
 
-    w_lines = 120
-    for i in range(0,9):
-        draw_blk.line([(401,w_lines+i*40),(800,w_lines+i*40+1)], fill="grey", width=1, joint=None)
-    
-    draw_blk.line([(401,120),(800, 120)], fill="black", width=2)
+
+    draw_blk.line([(401,160),(800, 160)], fill="grey", width=1)
+    draw_blk.line([(401,200),(800, 200)], fill="grey", width=1)
+    draw_blk.line([(401,240),(800, 240)], fill="grey", width=1)
+    draw_blk.line([(401,280),(800, 280)], fill="grey", width=1)
+    draw_blk.line([(401,320),(800, 320)], fill="grey", width=1)
+    draw_blk.line([(401,360),(800, 360)], fill="grey", width=1)
+    draw_blk.line([(401,400),(800, 400)], fill="grey", width=1)
+    draw_blk.line([(401,440),(800, 440)], fill="grey", width=1)
+
 
     canvas_red.paste(calendar_icon(), (425,10))
     

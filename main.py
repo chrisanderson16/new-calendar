@@ -141,7 +141,7 @@ try:
 ####################################### PRINTING TO DISPLAY ###################
     
     #background_w_thumbnail_blk = Image.open(os.path.join(dir_img, 'black_thumbnail.bmp'))
-    convert_char_thumbnails(dir_img)
+    numofCharacters = convert_char_thumbnails(dir_img)
     canvas_blk = Image.open(os.path.join(dir_img, 'thumbnail.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
@@ -151,7 +151,12 @@ try:
     draw_blk = ImageDraw.Draw(canvas_blk)
     draw_red = ImageDraw.Draw(canvas_red)
 
-    
+# Names on icons
+    if numofCharacters > 1:
+        draw_blk.text((30, 390), "{:1}".format(names[0]), font=font24, fill=0)    
+        draw_blk.text((350,390), "{:1}".format(names[1]), font=font24, fill=0)    
+    else:
+        draw_blk.text((220,390), "{:1}".format(names[0]), font=font24, fill=0)    
 
 # Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)

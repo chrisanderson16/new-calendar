@@ -157,7 +157,7 @@ try:
         draw_red.text((152,390), "and", font=font24, fill=0)
         draw_red.text((255,390), "{:1}".format(names[1]), font=font24, fill=0)    
     else:
-        draw_red.text((145,430), "{:1}".format(names[0]), font=font48, fill=0)    
+        draw_red.text((125,430), "{:1}".format(names[0]), font=font48, fill=0)    
 
 # Day and Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)

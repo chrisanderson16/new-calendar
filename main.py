@@ -6,7 +6,6 @@ import logging
 import time
 import traceback
 import datetime
-import PIL as pillow
 from PIL import Image,ImageDraw,ImageFont, ImageChops
 
 import datetime
@@ -146,8 +145,7 @@ try:
     canvas_blk = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
-    back_im = canvas_blk.copy()
-    back_im.paste(convert_char_thumbnails(dir_img), (10,240), mask=None)
+    
 
     #canvas_blk.paste(convert_char_thumbnails(dir_img),(10, 220))
 
@@ -174,7 +172,7 @@ try:
         draw_blk.line([(401,w_lines+i*40),(800,w_lines+i*40)], fill=None, width=0, joint=None)
     
     canvas_red.paste(calendar_icon(), (425,10))
-
+    canvas_blk.paste(convert_char_thumbnails(dir_img), (10,240), mask=None)
 
 # Google API
     cal_list = google_calendar_api(SCOPES)

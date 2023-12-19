@@ -127,8 +127,8 @@ def convert_char_thumbnails(dir_img):
 
         time.sleep(2)
 
-        new_thumb_path_1 = os.path.join(dir_img, 'tmp1.png')
-        new_thumb_path_2 = os.path.join(dir_img, 'tmp2.png')
+        new_thumb_path_1 = os.path.join(dir_img, 'tmp1.bmp')
+        new_thumb_path_2 = os.path.join(dir_img, 'tmp2.bmp')
 
         new_thumb_1 = Image.open(new_thumb_path_1)
         new_thumb_2 = Image.open(new_thumb_path_2)

@@ -6,6 +6,7 @@ import logging
 import time
 import traceback
 import datetime
+import PIL as pillow
 from PIL import Image,ImageDraw,ImageFont, ImageChops
 
 import datetime

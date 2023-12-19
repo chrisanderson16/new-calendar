@@ -162,7 +162,15 @@ def convert_char_thumbnails(dir_img):
         #out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)
         
         new_icon.putdata(rmTransparency(addBorder(img_blk_data)))
-        new_icon.save(os.path.join(dir_img, 'thumbnail.bmp'))
+        new_icon.save(os.path.join(dir_img, 'tmp.bmp'))
+
+        thumb = Image.open(os.path.join(dir_img, 'tmp.bmp'))
+
+        blank_im_one = background.copy()
+        blank_im_one.paste(thumb, (15, 25), mask=None)
+
+        blank_im_one.save(os.path.join(dir_img, 'thumbnail.bmp'))
+
         rmOldImgs(dir_img)  
         return 1
 

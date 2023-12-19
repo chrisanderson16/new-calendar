@@ -104,15 +104,15 @@ def convert_char_thumbnails(dir_img):
 
 
 
-        icon_open1 = Image.open(icon_files[1])    
-        icon_open2 = Image.open(icon_files[2])    
+        icon_open1 = Image.open(icon_files[0])    
+        icon_open2 = Image.open(icon_files[1])    
             
 # Resize and convert the obj for BLK to the correct dimensions
         icon_BLK1 = icon_open1.resize(smallerIcon)
         icon_BLK1 = icon_BLK1.convert("RGBA")
             
         icon_BLK2 = icon_open2.resize(smallerIcon)
-        icon_BLK2 = icon_BLK1.convert("RGBA")
+        icon_BLK2 = icon_BLK2.convert("RGBA")
 
         img_blk_data1 = icon_BLK1.getdata()
         img_blk_data2 = icon_BLK2.getdata()
@@ -135,7 +135,7 @@ def convert_char_thumbnails(dir_img):
 
         blank_im = background.copy()
         blank_im.paste(new_thumb_1, (10,230), mask=None)
-        blank_im.paste(new_thumb_2, (260,230), mask=None)
+        blank_im.paste(new_thumb_2, (230,230), mask=None)
 
         blank_im.save(os.path.join(dir_img, 'thumbnail.bmp'))
         rmOldImgs(dir_img)  

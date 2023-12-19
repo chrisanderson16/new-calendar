@@ -110,7 +110,7 @@ def convert_char_thumbnails(dir_img):
         #out = printBlackBMP(rmTransparency(addBorder(img_blk_data)), icon_BLK)
         
         new_icon.putdata(rmTransparency(addBorder(img_blk_data)))
-        new_icon.show()
+        new_icon.save(os.path.join(dir_img, 'thumbnail_1.bmp'))
         rmOldImgs(dir_img)  
         return new_icon
 

@@ -145,6 +145,8 @@ try:
     canvas_blk = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
     canvas_red = Image.open(os.path.join(dir_img, 'NULL_COLOUR.bmp'))
 
+    convert_char_thumbnails(dir_img)
+
     thumbnail = Image.open(os.path.join(dir_img, 'thumbnail_1.bmp'))
 
     #canvas_blk.paste(convert_char_thumbnails(dir_img),(10, 220))

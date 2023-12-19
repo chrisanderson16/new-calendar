@@ -88,6 +88,7 @@ def convert_char_thumbnails(dir_img):
 
     if len(icon_files) > 1:
         print("OMG more than 1 bday today")
+        return 2
     else:
         print("Normal operations")
 
@@ -112,7 +113,7 @@ def convert_char_thumbnails(dir_img):
         new_icon.putdata(rmTransparency(addBorder(img_blk_data)))
         new_icon.save(os.path.join(dir_img, 'thumbnail_1.bmp'))
         rmOldImgs(dir_img)  
-        return new_icon
+        return 1
 
 
 
